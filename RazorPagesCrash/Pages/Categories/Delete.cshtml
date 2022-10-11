@@ -1,26 +1,29 @@
 ﻿@page
-@model RazorPagesCrash.Pages.Categories.CreateModel
+@model RazorPagesCrash.Pages.Categories.DeleteModel
 
 <form method="post">
+    <input hidden asp-for="Category.ID"/>
     <div class="border p-3 mt-4">
         <div class="row pb-2">
             <h2 class="text-primary ps-3">
-                Create Category
+                Delete Category
             </h2>
         </div>
-        <div asp-validation-summary="All"></div>
         <div class="mb-3">
             <label asp-for="Category.Name"></label>
-            <input asp-for="Category.Name" class="form-control"/>
+            <input asp-for="Category.Name" class="form-control" disabled />
             <span asp-validation-for="Category.Name" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label asp-for="Category.DisplayOrder"></label>
-            <input asp-for="Category.DisplayOrder" class="form-control" />
+            <input asp-for="Category.DisplayOrder" class="form-control" disabled />
             <span asp-validation-for="Category.DisplayOrder" class="text-danger"></span>
         </div>
-        <button type="submit" class="btn btn-primary" style="width:150px;">
-            Create
+        <div class="text-danger">
+            Are you sure to delete this category?
+        </div>
+        <button type="submit" class="btn btn-danger" style="width:150px;">
+            Delete
         </button>
         <a asp-page="Index" class="btn btn-primary" style="width:150px;">
             Back To List
@@ -31,6 +34,6 @@
 
 @section Scripts{
     @{
-            <partial name="_ValidationScriptsPartial"></partial>
+        <partial name="_ValidationScriptsPartial"></partial>
     }
 }

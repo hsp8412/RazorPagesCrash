@@ -1,11 +1,12 @@
 ﻿@page
-@model RazorPagesCrash.Pages.Categories.CreateModel
+@model RazorPagesCrash.Pages.Categories.EditModel
 
 <form method="post">
+    <input hidden asp-for="Category.ID"/>
     <div class="border p-3 mt-4">
         <div class="row pb-2">
             <h2 class="text-primary ps-3">
-                Create Category
+                Edit Category
             </h2>
         </div>
         <div asp-validation-summary="All"></div>
@@ -20,7 +21,7 @@
             <span asp-validation-for="Category.DisplayOrder" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px;">
-            Create
+            Update
         </button>
         <a asp-page="Index" class="btn btn-primary" style="width:150px;">
             Back To List
@@ -31,6 +32,6 @@
 
 @section Scripts{
     @{
-            <partial name="_ValidationScriptsPartial"></partial>
+        <partial name="_ValidationScriptsPartial"></partial>
     }
 }
